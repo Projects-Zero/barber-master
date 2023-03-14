@@ -9,7 +9,7 @@ import Routes from './src/routes';
 import { AuthProvider } from './src/context/AuthProvider';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { pt, registerTranslation } from 'react-native-paper-dates';
-
+import './src/localization/i18n';
 
 export default function App() {
 

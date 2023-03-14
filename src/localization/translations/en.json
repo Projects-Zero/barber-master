@@ -1,0 +1,13 @@
+{
+    "auth": {
+        "email": "Email",
+        "password": "Password",
+        "login": "Login",
+        "logout": "Logout",
+        "notRegistered": "Not registered yet?",
+        "register": "Register now!",
+        "invalidEmail": "Invalid Email",
+        "requireEmail": "Email is required.",
+        "requirePassword": "Password is required."
+    }
+}
