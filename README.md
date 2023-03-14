@@ -35,7 +35,7 @@ To install Barber Master, follow these steps:
 1. Clone the repository onto your local machine
 2. Run `yarn install` to install the necessary dependencies
 3. Run `npx expo start` to start the app
-4. Run Backend code [here](here)
+4. Configure Backend code [here](https://github.com/Projects-Zero/barber-backend)
 
 ## Usage {#usage}
 
