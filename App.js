@@ -10,6 +10,7 @@ import { AuthProvider } from './src/context/AuthProvider';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { pt, registerTranslation } from 'react-native-paper-dates';
 
+
 export default function App() {
 
   const [loaded] = useFonts({
