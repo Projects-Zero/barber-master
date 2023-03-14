@@ -1,7 +1,16 @@
 # Barber Master App
 
 
-![](./src/assets/readme/1.png)
+
+<img src="./src/assets/art/1.png" width="500" height="400" />
+<img src="./src/assets/art/2.png" width="500" height="400" />
+<img src="./src/assets/art/3.png" width="500" height="400" />
+<img src="./src/assets/art/4.png" width="500" height="400" />
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
 
 ## Barber Master
 
@@ -10,7 +19,7 @@ Barber Master is an App that allows users book appointment with barbers. This is
 The project also a dashboard panel, made in React.js for admins, to manage booked services.
 
 
-## Installation
+## Installation {#installation}
 
 To install Barber Master, follow these steps:
 
@@ -19,16 +28,16 @@ To install Barber Master, follow these steps:
 
 1. Clone the repository onto your local machine
 2. Run `npm install` to install the necessary dependencies
-3. Run `npm start` to start the app
+3. Run `npx expo start` to start the app
 
 #### yarn
 
 1. Clone the repository onto your local machine
 2. Run `yarn install` to install the necessary dependencies
-3. Run `yarn start` to start the app
+3. Run `npx expo start` to start the app
 4. Run Backend code [here](here)
 
-## Usage
+## Usage {#usage}
 
 Once you've installed Barber Master, you can use it to:
 
@@ -37,7 +46,7 @@ Once you've installed Barber Master, you can use it to:
 - View your upcoming appointments
 - Cancel appointments if necessary
 
-## Contributing
+## Contributing {#contributing}
 
 If you'd like to contribute to Barber Master, please follow these steps:
 
