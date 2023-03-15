@@ -17,6 +17,8 @@ import useAuth from "../hooks/useAuth";
 import { COLORS, FONTS } from "../constants/theme";
 const LOGIN_URL = "/auth";
 
+
+
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const Login = ({ navigation }) => {
   const { t } = useTranslation();
@@ -40,6 +42,8 @@ const Login = ({ navigation }) => {
       .required(t("auth.requireEmail")),
     pwd: yup.string().required(t("auth.requirePassword")),
   });
+
+  
 
   return (
     <ImageBackground
@@ -101,15 +105,16 @@ const Login = ({ navigation }) => {
               navigation.navigate("Home");
             })
             .catch((err) => {
-              // console.log(`Error: ${err}`);
+              const error =  JSON.stringify(err)
+              console.log(`Error: ${error}`);
               if (!err?.response) {
-                setErrMsg("Erro no servidor: " + err);
+                setErrMsg("Erro no servidor: ");
               } else if (err.response?.status === 400) {
                 setErrMsg("Email ou senha não existem.");
               } else if (err.response?.status === 401) {
                 setErrMsg("Email ou senha incorretos, ou não cadastrados!");
               } else {
-                setErrMsg("Erro ao tentar fazer Login.");
+                setErrMsg("Erro ao tentar fazer Login. " );
                 // console.warn(err.response)
               }
               // errRef.current.focus();

@@ -20,5 +20,19 @@
         "login": "Login Now!",
         "createAccount": "Create Account"
 
+    },
+    "homepage": {
+        "title": "Barbershop Master Mustache",
+        "hello": "Hello",
+        "products_title": "Products",
+        "services_title": "Services",
+        "booking_title": "Booking",
+        "barbers_title": "Barbers"
+    },
+    "services": {
+        "title": "Beard Full Service",
+        "description": "Beard full",
+        "duration": "min",
+        "price": "$"
     }
 }

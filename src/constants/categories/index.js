@@ -1,25 +1,28 @@
+import { useTranslation } from 'react-i18next'
+
+
 export const CATEGORIES = [
     {
         id: 1,
-        name: 'Produtos',
+        name: 'homepage.products_title',
         navigate: 'Products',
         image: require('../../assets/images/products.png')
     },
     {
         id: 2,
-        name: 'Serviços',
+        name: 'homepage.services_title',
         navigate: 'Services',
         image: require('../../assets/images/services.png')
     },
     {
         id: 3,
-        name: 'Agendamentos',
+        name: 'homepage.booking_title',
         navigate: 'Bookings',
         image: require('../../assets/images/schedule.png')
     },
     {
         id: 4,
-        name: 'Profissionais',
+        name: 'homepage.barbers_title',
         navigate: 'Barbers',
         image: require('../../assets/images/barber.png')
     },

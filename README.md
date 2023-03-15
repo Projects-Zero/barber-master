@@ -15,16 +15,19 @@
 
 ## Contributors
 
- - Thanks to @[force9493] for their contributions to this project!
+  Thanks to the following contributors to this project!
+   - [@force9493](https://github.com/force9493)
 
 ## Barber Master
+
+:warning: This is a ongoing project, some features will be implemented in the future.
 
 Barber Master is an App that allows users book appointment with barbers. This is app was created with React Native for the Front End Mobile and Node + MongoDB for the Backend.
 
 The project also a dashboard panel, made in React.js for admins, to manage booked services.
 
 
-## Installation {#installation}
+## Installation
 
 To install Barber Master, follow these steps:
 
@@ -42,7 +45,7 @@ To install Barber Master, follow these steps:
 3. Run `npx expo start` to start the app
 4. Configure Backend code [here](https://github.com/Projects-Zero/barber-backend)
 
-## Usage {#usage}
+## Usage
 
 Once you've installed Barber Master, you can use it to:
 
@@ -51,7 +54,7 @@ Once you've installed Barber Master, you can use it to:
 - View your upcoming appointments
 - Cancel appointments if necessary
 
-## Contributing {#contributing}
+## Contributing
 
 If you'd like to contribute to Barber Master, please follow these steps:
 

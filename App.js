@@ -10,7 +10,7 @@ import Routes from './src/routes';
 import { AuthProvider } from './src/context/AuthProvider';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { pt, registerTranslation } from 'react-native-paper-dates';
-import i18n from './src/localization/i18n';
+import './src/localization/i18n';
 import { I18nextProvider } from 'react-i18next';
 
 export default function App() {
@@ -23,23 +23,22 @@ export default function App() {
   })
   registerTranslation('pt', pt);
 
-/*   useEffect(() => {
+  useEffect(() => {
 // Force a reload of the i18n configuration after the component mounts
 setI18nKey(i18nKey + 1);
-  },[]) */
+  },[])
 
   
 
   if (!loaded) return null;
   return (
     <SafeArea >
-      <I18nextProvider key={i18nKey}  >
+
       <PaperProvider>
         <AuthProvider>
           <Routes />
         </AuthProvider>
       </PaperProvider>
-      </I18nextProvider>
     </SafeArea>
   );
 }

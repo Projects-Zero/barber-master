@@ -18,9 +18,12 @@ import AuthContext from '../context/AuthProvider';
 import api from '../api/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { useTranslation } from 'react-i18next';
+
 const Home = ({ navigation }) => {
   const bg = require('../assets/bg.png');
 
+  const { t } = useTranslation();
   const { width, height } = useWindowDimensions();
 
   const [username, setUsername] = useState('');
@@ -61,7 +64,7 @@ const Home = ({ navigation }) => {
           source={image}
           resizeMode="cover"
           style={styles.image}>
-          <Text lineBreakMode='middle' style={styles.catTitle}>{name}</Text>
+          <Text lineBreakMode='middle' style={styles.catTitle}>{t(name)}</Text>
         </ImageBackground>
 
       </TouchableOpacity>
@@ -76,7 +79,7 @@ const Home = ({ navigation }) => {
       <View style={[styles.container]} >
         <View style={{ justifyContent: 'center', alignItems: 'center', width }}>
           <ImageBackground resizeMode='cover' source={require('../assets/images/header.png')} style={[styles.header,]}>
-            <Text style={styles.title} >Barbearia Mestre Bigode</Text>
+            <Text style={styles.title} >{t('homepage.title')}</Text>
 
             <View style={styles.profileImgWrapper}>
 
@@ -84,7 +87,7 @@ const Home = ({ navigation }) => {
             </View>
           </ImageBackground>
           <View style={[{ width: '100%', }]}>
-            <Text style={styles.name} >Olá {username}!</Text>
+            <Text style={styles.name} >{t('homepage.hello')} {username}!</Text>
           </View>
         </View>
         <FlatList

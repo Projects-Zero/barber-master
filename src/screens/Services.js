@@ -6,6 +6,7 @@ import  api from '../api/api';
 import { COLORS, FONTS } from '../constants/theme';
 
 import { Button } from 'react-native-paper'
+import { useTranslation } from 'react-i18next';
 
 function Services({ navigation, route }) {
     const isMounted = useRef(false);
@@ -14,6 +15,8 @@ function Services({ navigation, route }) {
     const [loading, setIsLoading] = useState(false);
     const [accessToken, setAccessToken] = useState();
     const {username} = route.params;
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         isMounted.current = true;
@@ -40,6 +43,18 @@ function Services({ navigation, route }) {
         return () =>
             (isMounted.current = false);
     }, []);
+
+    // translate data from api
+    const translatedData = services.map(item =>{
+        return {
+            ...item,
+            title: t(item.name),
+            description: t(item.description),
+            duration: t(item.duration),
+            price: t(item.price),
+
+        }
+    })
 
     const renderItem = ({ item }) => {
         const { _id, name, description, picture, price, duration } = item;
@@ -87,7 +102,7 @@ function Services({ navigation, route }) {
                     <FlatList
                         style={{ flex: 1 }}
                         keyExtractor={(item) => item._id}
-                        data={services}
+                        data={translatedData}
                         renderItem={renderItem}
                         numColumns={1}
                         initialNumToRender={5}

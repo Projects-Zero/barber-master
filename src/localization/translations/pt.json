@@ -19,7 +19,19 @@
         "alreadyRegistered": "Já é nosso cliente?",
         "login": "Faça Login!",
         "createAccount": "Cadastrar"
-
-
+    },
+    "homepage": {
+        "title": "Barbearia Mestre Bigode",
+        "hello": "Olá",
+        "products_title": "Produtos",
+        "pservices_title": "Serviços",
+        "booking_title": "Agendamentos",
+        "barbers_title": "Barbeiros"
+    },
+    "services": {
+        "title": "Barba completa",
+        "description": "Barba completa",
+        "duration": "min",
+        "price": "R$"
     }
 }

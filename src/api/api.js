@@ -1,5 +1,10 @@
 import axios from "axios";
-const BASE_URL = 'http://localhost:3500';
+
+
+const BASE_URL = process.env.NODE_ENV == 'development' ? 
+'http://192.168.100.66:3500' : 
+'barber-master-backend.vercel.app';
+
 
 
 export default api = axios.create({
