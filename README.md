@@ -1,16 +1,21 @@
 # Barber Master App
 
 
-
 <img src="./src/assets/art/1.png" width="500" height="400" />
 <img src="./src/assets/art/2.png" width="500" height="400" />
 <img src="./src/assets/art/3.png" width="500" height="400" />
 <img src="./src/assets/art/4.png" width="500" height="400" />
 
+
+
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
+
+## Contributors
+
+ - Thanks to @[force9493] for their contributions to this project!
 
 ## Barber Master
 

@@ -8,12 +8,15 @@ import api from '../api/api';
 import useAuth from '../hooks/useAuth';
 import { COLORS, FONTS } from '../constants/theme';
 
+import { useTranslation } from 'react-i18next';
+
 const USER_REGEX = /^[A-z][A-z0-9-_]{2,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = '/register';
 
 
 const Register = ({ navigation }) => {
+    const { t } = useTranslation();
     const background = require('../assets/images/login.png');
     const emailRef = useRef();
     const userRef = useRef();
@@ -56,7 +59,7 @@ const Register = ({ navigation }) => {
             <Text ref={errRef} style={errMsg ? styles.errMsg : styles.offscreen} >{errMsg}</Text>
 
             <View >
-                <Text style={{ textAlign: 'center', fontSize: 40, fontFamily: FONTS.bold, color: '#fff' }}>Seja um Mestre Bigode!</Text>
+                <Text style={{ textAlign: 'center', fontSize: 40, fontFamily: FONTS.bold, color: '#fff' }}>{t("register.title")}</Text>
             </View>
 
 
@@ -111,7 +114,7 @@ const Register = ({ navigation }) => {
                 {props => (
                     <View style={styles.loginForm}>
                         <TextInput style={styles.input}
-                            label={"Usuário"}
+                            label={t("register.username")}
                             ref={userRef}
                             autoComplete="off"
                             value={props.values.user}
@@ -125,7 +128,7 @@ const Register = ({ navigation }) => {
                         ) : null}
 
                         <TextInput style={styles.input}
-                            label={"Email"}
+                            label={t("register.email")}
                             autoComplete="off"
                             value={props.values.email}
                             onChangeText={props.handleChange('email')}
@@ -140,7 +143,7 @@ const Register = ({ navigation }) => {
 
 
                         <TextInput style={styles.input}
-                            label={"Senha"}
+                            label={t("register.password")}
                             secureTextEntry={true}
                             autoComplete="off"
                             value={props.values.pwd}
@@ -151,7 +154,7 @@ const Register = ({ navigation }) => {
                         ) : null}
 
                         <TextInput style={styles.input}
-                            label={"Confirmar Senha"}
+                            label={t("register.confirmPassword")}
                             secureTextEntry={true}
                             autoComplete="off"
                             value={props.values.confirm_pwd}
@@ -166,10 +169,10 @@ const Register = ({ navigation }) => {
                             mode='contained'
 
                             onPress={props.handleSubmit}>
-                            {loading ? <ActivityIndicator size={18} color={'white'} /> : 'Cadastrar'}
+                            {loading ? <ActivityIndicator size={18} color={'white'} /> : t("register.createAccount")}
                         </Button>
-                        <Text style={styles.text}>Já é nosso Cliente?
-                            <Text onPress={() => navigation.navigate('Login')} style={{ textDecorationLine: 'underline' }} > Faça Login!</Text>
+                        <Text style={styles.text}>{t("register.alreadyRegistered")}
+                            <Text onPress={() => navigation.navigate('Login')} style={{ textDecorationLine: 'underline' }} > {t("register.login")}</Text>
                         </Text>
                     </View>
                 )}

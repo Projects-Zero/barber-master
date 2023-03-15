@@ -9,5 +9,17 @@
         "invalidEmail": "Email inválido",
         "requireEmail": "Email é obrigatório.",
         "requirePassword": "Senha é obrigatório."
+    },
+    "register": {
+        "title": "Seja um Mestre Bigode!",
+        "username": "Usuário",
+        "email": "Email",
+        "password": "Semnha",
+        "confirmPassword": "Confirmar Senha",
+        "alreadyRegistered": "Já é nosso cliente?",
+        "login": "Faça Login!",
+        "createAccount": "Cadastrar"
+
+
     }
 }

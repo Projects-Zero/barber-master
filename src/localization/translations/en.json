@@ -9,5 +9,16 @@
         "invalidEmail": "Invalid Email",
         "requireEmail": "Email is required.",
         "requirePassword": "Password is required."
+    },
+    "register": {
+        "title": "Become a Barber Master!",
+        "username": "Username",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "alreadyRegistered": "Already our client?",
+        "login": "Login Now!",
+        "createAccount": "Create Account"
+
     }
 }
