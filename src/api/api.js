@@ -1,9 +1,8 @@
 import axios from "axios";
+import { IP_ADDRESS, BACKEND_URL } from "@env"
 
 
-const BASE_URL = process.env.NODE_ENV == 'development' ? 
-process.env.IP_ADDRESS : 
-process.env.BACKEND_URL;
+const BASE_URL = process.env.NODE_ENV == 'development' ? IP_ADDRESS : BACKEND_URL;
 
 
 
