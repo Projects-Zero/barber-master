@@ -45,7 +45,7 @@ function Services({ navigation, route }) {
     }, []);
 
     // translate data from api
-    const translatedData = services.map(item =>{
+    /* const translatedData = services.map(item =>{
         return {
             ...item,
             title: t(item.name),
@@ -54,7 +54,7 @@ function Services({ navigation, route }) {
             price: t(item.price),
 
         }
-    })
+    }) */
 
     const renderItem = ({ item }) => {
         const { _id, name, description, picture, price, duration } = item;
@@ -102,7 +102,7 @@ function Services({ navigation, route }) {
                     <FlatList
                         style={{ flex: 1 }}
                         keyExtractor={(item) => item._id}
-                        data={translatedData}
+                        data={services}
                         renderItem={renderItem}
                         numColumns={1}
                         initialNumToRender={5}

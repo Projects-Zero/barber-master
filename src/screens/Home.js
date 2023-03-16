@@ -36,8 +36,8 @@ const Home = ({ navigation }) => {
         let user = values[0][1];
         let photo = values[1][1];
 
-        console.log(`User: ${user}`);
-        console.log(`Photo: ${photo}`); 
+        /* console.log(`User: ${user}`);
+        console.log(`Photo: ${photo}`);  */
 
       if (values !== null) {
         setPhoto(photo)

@@ -43,7 +43,11 @@ const Login = ({ navigation }) => {
     pwd: yup.string().required(t("auth.requirePassword")),
   });
 
-  
+
+  /* useEffect(() => {
+    console.log(process.env.NODE_ENV)
+  },[])
+ */
 
   return (
     <ImageBackground
@@ -70,59 +74,64 @@ const Login = ({ navigation }) => {
           pwd: "",
         }}
         onSubmit={async (credentials, formikActions) => {
-          setLoading(true);
-          await sleep(500);
-          api
-            .post(LOGIN_URL, credentials, {
-              headers: { "Content-Type": "application/json" },
-              withCredentials: true,
-            })
-            .then((response) => {
-              const userId = response?.data?.userId;
-              const accessToken = response?.data?.accessToken; // send to backend
-              const roles = response?.data?.roles; // send roles to backend
-              const username = response?.data?.user;
-              const photo = response?.data?.photo;
-              const email = response?.data?.email;
+          try {
+            setLoading(true);
+            await sleep(100);
+            api
+              .post(LOGIN_URL, credentials, {
+                headers: { "Content-Type": "application/json" },
+                withCredentials: true,
+              })
+              .then((response) => {
+                const userId = response?.data?.userId;
+                const accessToken = response?.data?.accessToken; // send to backend
+                const roles = response?.data?.roles; // send roles to backend
+                const username = response?.data?.user;
+                const photo = response?.data?.photo;
+                const email = response?.data?.email;
 
-              // console.log(JSON.stringify(response?.data))
-              // salva o token bo async storage
-              AsyncStorage.multiSet([
-                ["@token", accessToken],
-                ["@id", userId],
-                ["@user", username],
-                ["@photo", photo],
-                ["@email", email],
-              ]);
-              // console.log(`Values: ${values}}`)
+                // console.log(JSON.stringify(response?.data))
+                // salva o token bo async storage
+                AsyncStorage.multiSet([
+                  ["@token", accessToken],
+                  ["@id", userId],
+                  ["@user", username],
+                  ["@photo", photo],
+                  ["@email", email],
+                ]);
+                // console.log(`Values: ${values}}`)
 
-              setAuth({
-                credentials,
-                roles,
-                accessToken,
-              });
+                setAuth({
+                  credentials,
+                  roles,
+                  accessToken,
+                });
 
-              navigation.navigate("Home");
-            })
-            .catch((err) => {
-              const error =  JSON.stringify(err)
-              console.log(`Error: ${error}`);
-              if (!err?.response) {
-                setErrMsg("Erro no servidor: ");
-              } else if (err.response?.status === 400) {
-                setErrMsg("Email ou senha não existem.");
-              } else if (err.response?.status === 401) {
-                setErrMsg("Email ou senha incorretos, ou não cadastrados!");
-              } else {
-                setErrMsg("Erro ao tentar fazer Login. " );
-                // console.warn(err.response)
-              }
-              // errRef.current.focus();
-            })
-            .finally(() => setLoading(false));
-          formikActions.setSubmitting(false);
-          formikActions.resetForm();
-          setErrMsg("");
+                navigation.navigate("Home");
+              })
+
+          } catch (err) {
+            const error = JSON.stringify(err)
+            console.log(`Error: ${error.response}`);
+            if (!err?.response) {
+              setErrMsg("Erro no servidor: ");
+            } else if (err.response?.status === 400) {
+              setErrMsg("Email ou senha não existem.");
+            } else if (err.response?.status === 401) {
+              setErrMsg("Email ou senha incorretos, ou não cadastrados!");
+            } else {
+              setErrMsg("Erro ao tentar fazer Login. ");
+              // console.warn(err.response)
+            }
+            // errRef.current.focus();
+          } finally {
+            setLoading(false);
+            formikActions.setSubmitting(false);
+            formikActions.resetForm();
+            setErrMsg("");
+          }
+
+
         }}
         validationSchema={validations}
       >
@@ -166,18 +175,21 @@ const Login = ({ navigation }) => {
             {props.touched.pwd && props.errors.pwd ? (
               <Text style={styles.errMsg}>{props.errors.pwd}</Text>
             ) : null}
+            {
+              loading ?
+                <ActivityIndicator size={20} color={'#fff'} style={{marginTop: 10}} /> :
+                <Button
+                disabled={loading ? true : false}
+                  style={styles.button}
+                  mode="contained"
+                  onPress={props.handleSubmit}
+                >
+                 { t("auth.login")}
+                </Button>
 
-            <Button
-              style={styles.button}
-              mode="contained"
-              onPress={props.handleSubmit}
-            >
-              {loading ? (
-                <ActivityIndicator size={18} color={"white"} />
-              ) : (
-                t("auth.login")
-              )}
-            </Button>
+            }
+
+
             <Text style={styles.text}>
               {t("auth.notRegistered")}
               <Text
